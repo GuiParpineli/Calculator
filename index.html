@@ -9,6 +9,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <script src="scripts/main.js" defer></script>
     
     <title>Calculadora</title>
@@ -17,10 +20,13 @@
 <body>
     <div class="container">
         <div class="visor-container">
-            <div class="visor"></div>
+            <div class="visor">
+               <!--  <p class="visor-text">000000</p>
+                <p class="visor-text">0000000000</p> -->
+            </div>
             <div class="keyboard">
                 <ul>
-                    <li><button id="clean">C</button></li>
+                    <li><button class='operador'id="clean">C</button></li>
                     <li><button class='number'id= 7 >7</button></li>
                     <li><button class='number'id= 8 >8</button></li>
                     <li><button class='number'id= 9 >9</button></li>
@@ -32,11 +38,11 @@
                     <li><button class='number'id= 1 >1</button></li>
                     <li><button class='number'id= 2 >2</button></li>
                     <li><button class='number'id= 3 >3</button></li>
-                    <li><button id="adicao">+</button></li>
-                    <li><button id="porcent">%</button></li>
-                    <li><button class='number'id= 0 >0</button></li>
+                    <li><button class='operador' id="adicao">+</button></li>
+                    <li><button class='operador' id="porcent">%</button></li>
+                    <li><button class='operador' class='number'id= 0 >0</button></li>
                     <li class="equal"><button id="btn-equal">=</button></li>
-                    <li><button id="division">÷</button></li>
+                    <li><button class='operador' id="division">÷</button></li>
                     <li><button class='number' id="dot">,</button></li>
                     <li><button class='number' id= 00 >00</button></li>
                 </ul>

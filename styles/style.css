@@ -17,7 +17,7 @@
     transform: translate(-50%);
     margin-top: 5%;
     border-radius: .8em;
-    box-shadow: 5px 5px 5px rgb(221, 237, 153);
+    box-shadow: 5px 5px 5px rgb(175, 226, 241);
 }
 
 .visor-container {
@@ -36,6 +36,15 @@
     height: 2em;
     position: relative;
     border-radius: .3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.visor-text {
+    max-width: 10px;
+    font-size: 1.3em;
+    font-family: 'Staatliches', cursive;
 }
 
 .keyboard {
@@ -52,7 +61,7 @@
     position: relative;
     height: 10em;
     flex-wrap: wrap;
-    
+
 }
 
 li {
@@ -66,6 +75,7 @@ li {
 }
 
 li>button {
+    cursor: pointer;
     color: black;
     background-color: rgb(196, 197, 199);
     padding: 7px;
@@ -73,7 +83,7 @@ li>button {
     border-radius: 50%;
 }
 
-#clean{
+#clean {
     background-color: red;
     color: white;
 }
