@@ -38,11 +38,12 @@
     border-radius: .3em;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: right;
+
 }
 
 .visor-text {
-    max-width: 10px;
+    
     font-size: 1.3em;
     font-family: 'Staatliches', cursive;
 }
