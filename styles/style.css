@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    background-color: black;
+    width: 10em;
+    height: 15em;
+    position: absolute;
+    display: flex;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 5%;
+    border-radius: .8em;
+    box-shadow: 5px 5px 5px rgb(221, 237, 153);
+}
+
+.visor-container {
+    display: flex;
+    top: 1.2em;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    width: 100%;
+    height: 10em;
+}
+
+.visor {
+    background-color: rgb(132, 202, 138);
+    width: 80%;
+    height: 2em;
+    position: relative;
+    border-radius: .3em;
+}
+
+.keyboard {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 15px;
+}
+
+.keyboard ul {
+    display: flex;
+    position: relative;
+    height: 10em;
+    flex-wrap: wrap;
+    
+}
+
+li {
+    text-align: center;
+    color: white;
+    width: 2em;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+li>button {
+    color: black;
+    background-color: rgb(196, 197, 199);
+    padding: 7px;
+    width: 90%;
+    border-radius: 50%;
+}
+
+#clean{
+    background-color: red;
+    color: white;
+}
+
+.equal {
+    position: relative;
+    align-items: baseline;
+}
+
+.equal #btn-equal {
+    position: relative;
+    width: 90%;
+    height: 190%;
+    background-color: green;
+    color: white;
+    border-radius: 5%;
+    top: 5%;
+}
