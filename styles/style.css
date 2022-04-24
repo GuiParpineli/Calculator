@@ -40,13 +40,17 @@
     display: flex;
     flex-direction: row;
     justify-content: right;
-
 }
 
 .visor-text {
-    
     font-size: 1.3em;
     font-family: 'Staatliches', cursive;
+}
+
+#screen-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
 }
 
 .keyboard {
