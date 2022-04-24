@@ -20,6 +20,7 @@ window.addEventListener("click", function (event) {
     if (idElement === 'clean') {
         const screen = document.querySelector('.visor')
         newNumber = [];
+        numbers = [];
         screen.innerHTML = ''
     }
 
@@ -27,26 +28,33 @@ window.addEventListener("click", function (event) {
     if (classElement === 'number') {
         numbers.push(idElement);
         //appends
-        screen.innerHTML = `<p class='visor-text'> ${idElement} </p>`
+
+        if (newNumber.length < 2) {
+            screen.innerHTML += `<p class='visor-text'> ${idElement} </p>`
+        } else {
+            const resultado = document.getElementById('resultado')
+            resultado.innerHTML = '+'
+            screen.innerHTML += `<p class='visor-text'>  ${idElement} </p>`
+
+        }
     }
+
 
     add.onclick = () => {
 
-        ptext = document.createTextNode('+')
-        p.appendChild(ptext)
-        p.classList.add('visor-text')
-        screen.appendChild(p)
+        screen.innerHTML = `<p class='visor-text' id='resultado'> + </p>`;
 
         var numberJoin = numbers.join('');
         var numberSoma = parseInt(numberJoin, 10);
         newNumber.push(numberSoma);
 
         var soma = () => {
+
             if (newNumber.length >= 2) {
                 screen.innerHTML = '';
                 var result = newNumber.reduce((a, b) => a + b);
 
-                screen.innerHTML = `<p class='visor-text'> ${result} </p>`
+                screen.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
                 console.log(result)
             }
         }
