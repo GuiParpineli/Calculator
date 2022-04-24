@@ -1,6 +1,7 @@
 const selectId = a => document.getElementById(a);
 
 const add = selectId('adicao');
+const equal = selectId('btn-equal');
 
 var idElement = '';
 var numbers = [];
@@ -8,7 +9,7 @@ var classElement = '';
 const screen = document.querySelector('.visor')
 
 
-var newNumber = [];
+var arraySoma = [];
 
 window.addEventListener("click", function (event) {
     const screen = document.querySelector('.visor')
@@ -19,7 +20,7 @@ window.addEventListener("click", function (event) {
 
     if (idElement === 'clean') {
         const screen = document.querySelector('.visor')
-        newNumber = [];
+        arraySoma = [];
         numbers = [];
         screen.innerHTML = ''
     }
@@ -29,9 +30,10 @@ window.addEventListener("click", function (event) {
         numbers.push(idElement);
         //appends
 
-        if (newNumber.length < 2) {
+        if (arraySoma.length < 2) {
             screen.innerHTML += `<p class='visor-text'> ${idElement} </p>`
-        } else {
+        }
+        if (arraySoma.length >= 2) {
             const resultado = document.getElementById('resultado')
             resultado.innerHTML = '+'
             screen.innerHTML += `<p class='visor-text'>  ${idElement} </p>`
@@ -40,26 +42,41 @@ window.addEventListener("click", function (event) {
     }
 
 
-    add.onclick = () => {
 
+    var soma = () => {
+
+        if (arraySoma.length >= 2) {
+            screen.innerHTML = '';
+            var result = arraySoma.reduce((a, b) => a + b);
+
+            screen.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
+            console.log(result)
+        }
+    }
+    add.onclick = () => {
         screen.innerHTML = `<p class='visor-text' id='resultado'> + </p>`;
 
         var numberJoin = numbers.join('');
         var numberSoma = parseInt(numberJoin, 10);
-        newNumber.push(numberSoma);
-
-        var soma = () => {
-
-            if (newNumber.length >= 2) {
-                screen.innerHTML = '';
-                var result = newNumber.reduce((a, b) => a + b);
-
-                screen.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-                console.log(result)
-            }
-        }
+        arraySoma.push(numberSoma);
         numbers = [];
+
         soma();
+    }
+
+    equal.onclick = () => {
+
+        if (arraySoma.length > 0) {
+            screen.innerHTML = `<p class='visor-text' id='resultado'> + </p>`;
+            var numberJoin = numbers.join('');
+            var numberSoma = parseInt(numberJoin, 10);
+            arraySoma.push(numberSoma);
+            numbers = [0];
+
+            soma();
+        }
+
+
     }
 }
 );
