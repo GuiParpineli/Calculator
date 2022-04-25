@@ -11,6 +11,8 @@ var somaQ = 0;
 var subQ = 0;
 var arrayNumbers = [];
 var result = 0;
+var contAdd = 0;
+var contSub = 0;
 
 window.addEventListener("click", function (event) {
 
@@ -29,22 +31,19 @@ window.addEventListener("click", function (event) {
     if (classElement === 'number') {
         numbers.push(idElement);
         //appends
-        if ((somaQ == 0) || (subQ == 0)) {
-            resultado.innerHTML = ''
-            screenNumber.innerHTML += `<p class='visor-text'> ${idElement} </p>`
-        }
-
-        if (somaQ > 1) {
-            resultado.innerHTML = '+'
-            screenNumber.innerHTML += `<p class='visor-text'>  ${idElement} </p>`
-        }
-
-        if (subQ > 1) {
-            resultado.innerHTML = ''
-            screenNumber.innerHTML += `<p class='visor-text'>  ${idElement} </p>`
-        }
+        resultado.innerHTML = ''
+        screenNumber.innerHTML += `<p class='visor-text'>  ${idElement} </p>`
     }
 
+    else {
+
+        if (idElement === 'adicao') {
+            screenNumber.innerHTML += `<p class='visor-text'>  + </p>`
+        }
+        if (idElement === 'subtracao') {
+            screenNumber.innerHTML += `<p class='visor-text'>  - </p>`
+        }
+    }
 
 
     add.onclick = () => {
@@ -52,7 +51,7 @@ window.addEventListener("click", function (event) {
         arrayNumbers = [0];
 
         if (somaQ == 0) {
-           
+
             var numberJoin = numbers.join('');
             var numberParse = parseInt(numberJoin, 10);
             arrayNumbers.push(numberParse);
@@ -66,20 +65,14 @@ window.addEventListener("click", function (event) {
             numbers = [0];
             newresult = arrayNumbers.reduce((a, b) => b + a);
             result = (newresult) + (result);
-          
+
         }
-        
-        if (arrayNumbers.length > 1) {
-            screenNumber.innerHTML = ` `;
-            resultado.innerHTML = '';
-            resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-            console.log(result)
-        }
-        if (arrayNumbers.length < 2) {
-            screenNumber.innerHTML = '';
-            resultado.innerHTML = '';
-            console.log(arrayNumbers)
-        }
+        screenNumber.innerHTML = ` `;
+
+        resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
+        console.log(result)
+
+        contAdd += 1;
         somaQ += 1;
         subQ += 1;
     }
@@ -88,8 +81,9 @@ window.addEventListener("click", function (event) {
 
         arrayNumbers = [0];
 
+
         if (subQ == 0) {
-           
+
             var numberJoin = numbers.join('');
             var numberParse = parseInt(numberJoin, 10);
             arrayNumbers.push(numberParse);
@@ -103,69 +97,54 @@ window.addEventListener("click", function (event) {
             numbers = [0];
             newresult = arrayNumbers.reduce((a, b) => b - a);
             result = (-newresult) - (-result);
-    
+
         }
-        
-        if (arrayNumbers.length > 1) {
-            screenNumber.innerHTML = ` `;
-            resultado.innerHTML = '';
-            resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-            console.log(result)
-        }
-        if (arrayNumbers.length < 2) {
-            screenNumber.innerHTML = '';
-            resultado.innerHTML = '';
-            console.log(arrayNumbers)
-        }
+
+        screenNumber.innerHTML = ``;
+
+        resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
+        console.log(result)
+
+        contSub += 1;
         subQ += 1;
         somaQ += 1;
     }
 
-  /*   equal.onclick = () => {
+    equal.onclick = () => {
 
-        if (somaQ >= 1) {
-            screenNumber.innerHTML = `<p class='visor-text'> + </p>`;
-            var numberJoin = numbers.join('');
-            var numberParse = parseInt(numberJoin, 10);
-            arrayNumbers.push(numberParse);
-            numbers = [0];
-            let result = arrayNumbers.reduce((a, b) => a + b);
+        if (contAdd > contSub) {
 
-            if (arrayNumbers.length > 1) {
-                screenNumber.innerHTML = ` `;
-                resultado.innerHTML = '';
+            if (somaQ == 0) {
+
+                console.log('resultado' + result)
+                var numberJoin = numbers.join('');
+                var numberParse = parseInt(numberJoin, 10);
+                arrayNumbers.push(numberParse);
+                arrayNumbers.sort((a, b) => (b + a));
+                console.log('arraynumbers' + arrayNumbers)
+                numbers = [0];
+                result = arrayNumbers.reduce((a, b) => (b + a));
+                screenNumber.innerHTML = ``;
+
                 resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-                console.log(result)
+                console.log('somba' + result)
             }
-            if (arrayNumbers.length < 2) {
-                screenNumber.innerHTML = '+';
-                resultado.innerHTML = '';
-                console.log(arrayNumbers)
+            if (contSub > contAdd) {
+                console.log('resultado' + result)
+                var numberJoin = numbers.join('');
+                var numberParse = parseInt(numberJoin, 10);
+                arrayNumbers.push(numberParse);
+                arrayNumbers.sort((a, b) => (b - a));
+                console.log('arraynumbers' + arrayNumbers)
+                numbers = [0];
+                result = arrayNumbers.reduce((a, b) => (b - a));
+                screenNumber.innerHTML = ``;
+
+                resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
+                console.log('subtracao' + result)
             }
         }
-
-        if (subQ >= 1) {
-            screenNumber.innerHTML = `<p class='visor-text'>  </p>`;
-            var numberJoin = numbers.join('');
-            var numberParse = parseInt(numberJoin, 10);
-            arrayNumbers.push(numberParse);
-            numbers = [0];
-            let result = arrayNumbers.reduce((a, b) => a - b);
-            subQ += 1
-
-            if (arrayNumbers.length > 1) {
-                screenNumber.innerHTML = ` `;
-                resultado.innerHTML = '';
-                resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-                console.log(result)
-            }
-            if (arrayNumbers.length < 2) {
-                screenNumber.innerHTML = '';
-                resultado.innerHTML = '';
-                console.log(arrayNumbers)
-            }
-        }
-    } */
+    }
 }
 );
 
