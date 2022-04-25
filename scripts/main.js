@@ -81,6 +81,7 @@ window.addEventListener("click", function (event) {
             console.log(arrayNumbers)
         }
         somaQ += 1;
+        subQ += 1;
     }
 
     sub.onclick = () => {
@@ -117,6 +118,7 @@ window.addEventListener("click", function (event) {
             console.log(arrayNumbers)
         }
         subQ += 1;
+        somaQ += 1;
     }
 
   /*   equal.onclick = () => {
