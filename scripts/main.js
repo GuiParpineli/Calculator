@@ -3,12 +3,14 @@ const add = selectId('adicao');
 const equal = selectId('btn-equal');
 const sub = selectId('subtracao');
 var idElement = '';
-var numbers = [];
+var numbers = [0];
 var classElement = '';
 const screenNumber = selectId('screen-numbers');
 const resultado = selectId('resultado');
-var arraySub = [];
-var arraySoma = [];
+var somaQ = 0;
+var subQ = 0;
+var arrayNumbers = [];
+var result = 0;
 
 window.addEventListener("click", function (event) {
 
@@ -16,8 +18,9 @@ window.addEventListener("click", function (event) {
     classElement = event.target.className;
 
     if (idElement === 'clean') {
-        arraySoma = [];
-        arraySub = [];
+        arrayNumbers = [];
+        somaQ = 0;
+        subQ = 0;
         numbers = [];
         screenNumber.innerHTML = '';
         resultado.innerHTML = '';
@@ -26,72 +29,141 @@ window.addEventListener("click", function (event) {
     if (classElement === 'number') {
         numbers.push(idElement);
         //appends
-        if ((arraySoma.length < 2) || (arraySoma.length < 2)) {
+        if ((somaQ == 0) || (subQ == 0)) {
+            resultado.innerHTML = ''
             screenNumber.innerHTML += `<p class='visor-text'> ${idElement} </p>`
         }
 
-        if (arraySoma.length > 2) {
+        if (somaQ > 1) {
             resultado.innerHTML = '+'
             screenNumber.innerHTML += `<p class='visor-text'>  ${idElement} </p>`
         }
 
-        if (arraySub.length > 2) {
-            resultado.innerHTML = '-'
+        if (subQ > 1) {
+            resultado.innerHTML = ''
             screenNumber.innerHTML += `<p class='visor-text'>  ${idElement} </p>`
         }
     }
 
-    var soma = () => {
 
-        if (arraySoma.length >= 2) {
-            screenNumber.innerHTML = '';
+
+    add.onclick = () => {
+
+        arrayNumbers = [0];
+
+        if (somaQ == 0) {
+           
+            var numberJoin = numbers.join('');
+            var numberParse = parseInt(numberJoin, 10);
+            arrayNumbers.push(numberParse);
+            result = arrayNumbers.reduce((a, b) => (b + a));
+            numbers = [0];
+        }
+        if (somaQ > 0) {
+            var numberJoin = numbers.join('');
+            var numberParse = parseInt(numberJoin, 10);
+            arrayNumbers.push(numberParse);
+            numbers = [0];
+            newresult = arrayNumbers.reduce((a, b) => b + a);
+            result = (newresult) + (result);
+          
+        }
+        
+        if (arrayNumbers.length > 1) {
+            screenNumber.innerHTML = ` `;
             resultado.innerHTML = '';
-            let result = arraySoma.reduce((a, b) => a + b);
             resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
             console.log(result)
         }
-    }
-
-    var subtract = () => {
-        if (arraySub.length >= 2) {
+        if (arrayNumbers.length < 2) {
             screenNumber.innerHTML = '';
-            let result = arraySub.reduce((a, b) => a - b);
-            resultado.innerHTML = `<p class='visor-text' > ${result} </p>`
-            console.log(result)
+            resultado.innerHTML = '';
+            console.log(arrayNumbers)
         }
-    }
-
-    add.onclick = () => {
-        screenNumber.innerHTML = `<p class='visor-text'> + </p>`;
-        let numberJoin = numbers.join('');
-        let numberSoma = parseInt(numberJoin, 10);
-        arraySoma.push(numberSoma);
-        numbers = [];
-        soma();
+        somaQ += 1;
     }
 
     sub.onclick = () => {
-        screenNumber.innerHTML = `<p class='visor-text'> - </p>`;
-        let numberJoin = numbers.join('');
-        let numberSub = parseInt(numberJoin, 10);
-        arraySub.push(numberSub);
-        numbers = [];
-        subtract();
+
+        arrayNumbers = [0];
+
+        if (subQ == 0) {
+           
+            var numberJoin = numbers.join('');
+            var numberParse = parseInt(numberJoin, 10);
+            arrayNumbers.push(numberParse);
+            result = arrayNumbers.reduce((a, b) => (b - a));
+            numbers = [0];
+        }
+        if (subQ > 0) {
+            var numberJoin = numbers.join('');
+            var numberParse = parseInt(numberJoin, 10);
+            arrayNumbers.push(numberParse);
+            numbers = [0];
+            newresult = arrayNumbers.reduce((a, b) => b - a);
+            result = (-newresult) - (-result);
+    
+        }
+        
+        if (arrayNumbers.length > 1) {
+            screenNumber.innerHTML = ` `;
+            resultado.innerHTML = '';
+            resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
+            console.log(result)
+        }
+        if (arrayNumbers.length < 2) {
+            screenNumber.innerHTML = '';
+            resultado.innerHTML = '';
+            console.log(arrayNumbers)
+        }
+        subQ += 1;
     }
 
-    equal.onclick = () => {
+  /*   equal.onclick = () => {
 
-        if (arraySoma.length > 0) {
-            resultado.innerHTML = `<p class='visor-text'> + </p>`;
+        if (somaQ >= 1) {
+            screenNumber.innerHTML = `<p class='visor-text'> + </p>`;
             var numberJoin = numbers.join('');
-            var numberSoma = parseInt(numberJoin, 10);
-            arraySoma.push(numberSoma);
+            var numberParse = parseInt(numberJoin, 10);
+            arrayNumbers.push(numberParse);
             numbers = [0];
-            soma();
+            let result = arrayNumbers.reduce((a, b) => a + b);
+
+            if (arrayNumbers.length > 1) {
+                screenNumber.innerHTML = ` `;
+                resultado.innerHTML = '';
+                resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
+                console.log(result)
+            }
+            if (arrayNumbers.length < 2) {
+                screenNumber.innerHTML = '+';
+                resultado.innerHTML = '';
+                console.log(arrayNumbers)
+            }
         }
 
+        if (subQ >= 1) {
+            screenNumber.innerHTML = `<p class='visor-text'>  </p>`;
+            var numberJoin = numbers.join('');
+            var numberParse = parseInt(numberJoin, 10);
+            arrayNumbers.push(numberParse);
+            numbers = [0];
+            let result = arrayNumbers.reduce((a, b) => a - b);
+            subQ += 1
 
-    }
+            if (arrayNumbers.length > 1) {
+                screenNumber.innerHTML = ` `;
+                resultado.innerHTML = '';
+                resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
+                console.log(result)
+            }
+            if (arrayNumbers.length < 2) {
+                screenNumber.innerHTML = '';
+                resultado.innerHTML = '';
+                console.log(arrayNumbers)
+            }
+        }
+    } */
 }
 );
 
