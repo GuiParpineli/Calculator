@@ -31,7 +31,7 @@ window.addEventListener("click", function (event) {
     if (classElement === 'number') {
         numbers.push(idElement);
         //appends
-
+        
         screenNumber.innerHTML += `<p class='visor-text'>  ${idElement} </p>`
     }
 
@@ -112,29 +112,64 @@ window.addEventListener("click", function (event) {
     equal.onclick = () => {
 
         if (contAdd === true) {
-            console.log('resultado' + result)
-            var numberJoin = numbers.join('');
-            var numberParse = parseInt(numberJoin, 10);
-            arrayNumbers.push(numberParse);
-            numbers = [0];
-            newresult = arrayNumbers.reduce((a, b) => b + a);
-            result = newresult;
-            screenNumber.innerHTML = ``;
+            arrayNumbers = [0];
+
+            if (somaQ == 0) {
+    
+                var numberJoin = numbers.join('');
+                var numberParse = parseInt(numberJoin, 10);
+                arrayNumbers.push(numberParse);
+                result = arrayNumbers.reduce((a, b) => (b + a));
+                numbers = [0];
+            }
+            if (somaQ > 0) {
+                var numberJoin = numbers.join('');
+                var numberParse = parseInt(numberJoin, 10);
+                arrayNumbers.push(numberParse);
+                numbers = [0];
+                newresult = arrayNumbers.reduce((a, b) => b + a);
+                result = (newresult) + (result);
+    
+            }
+            screenNumber.innerHTML = ` `;
+    
             resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-            console.log('somba' + result)
+            console.log(result)
+    
+            contAdd = true;
+            contSub = false;
+            somaQ += 1;
+            subQ += 1;
         }
         if (contSub === true) {
-            console.log('resultado' + result)
-            var numberJoin = numbers.join('');
-            var numberParse = parseInt(numberJoin, 10);
-            arrayNumbers.push(numberParse);
-            numbers = [0];
-            newresult = arrayNumbers.reduce((a, b) => b - a);
-            result = (-newresult) - (-result);
-            console.log('arraynumbers' + arrayNumbers)
-            screenNumber.innerHTML = ``;
+            arrayNumbers = [0];
+
+            if (subQ == 0) {
+                var numberJoin = numbers.join('');
+                var numberParse = parseInt(numberJoin, 10);
+                arrayNumbers.push(numberParse);
+                result = arrayNumbers.reduce((a, b) => (b - a));
+                numbers = [0];
+            }
+            if (subQ > 0) {
+                var numberJoin = numbers.join('');
+                var numberParse = parseInt(numberJoin, 10);
+                arrayNumbers.push(numberParse);
+    
+                numbers = [0];
+                newresult = arrayNumbers.reduce((a, b) => b - a);
+                result = (-newresult) - (-result);
+            }
+    
+            screenNumber.innerHTML = ` `;
+    
             resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-            console.log('subtracao' + result)
+            console.log(result)
+    
+            contSub = true;
+            contAdd = false;
+            subQ += 1;
+            somaQ += 1;
         }
     }
 }
