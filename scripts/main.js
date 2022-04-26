@@ -3,29 +3,34 @@ const selectId = a => document.getElementById(a);
 const add = selectId('+');
 const equal = selectId('btn-equal');
 const sub = selectId('-');
-const mult = selectId('x')
+const mult = selectId('x');
+const screenNumber = selectId('screen-numbers');
+const resultado = selectId('resultado');
 var idElement = '';
 var numbers = [0];
 var classElement = '';
-const screenNumber = selectId('screen-numbers');
-const resultado = selectId('resultado');
-var contOpr = 0;
 var newresult = 0;
 var result = 0;
-var contAdd = false;
-var contSub = false;
-var contMult = false;
+
+//objeto com dados de contadores
+const count = {
+    contOpr: 0,
+    contAdd: false,
+    contSub: false,
+    contMult: false
+}
+
 //funcoes matematicas
 var soma = () => {
 
-    if (contOpr === 0) {
+    if (count.contOpr === 0) {
 
         let numberJoin = numbers.join('');
         let numberParse = parseInt(numberJoin, 10);
         result = numberParse;
         numbers = [0];
     }
-    if (contOpr > 0) {
+    if (count.contOpr > 0) {
         let numberJoin = numbers.join('');
         let numberParse = parseInt(numberJoin, 10);
         newresult = numberParse
@@ -36,23 +41,23 @@ var soma = () => {
     screenNumber.innerHTML = ` `;
     resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
 
-    contAdd = true;
-    contSub = false;
-    contMult = false;
-    contOpr += 1;
+    count.contAdd = true;
+    count.contSub = false;
+    count.contMult = false;
+    count.contOpr += 1;
 
 }
 
 var subtract = () => {
 
-    if (contOpr === 0) {
+    if (count.contOpr === 0) {
         let numberJoin = numbers.join('');
         let numberParse = parseInt(numberJoin, 10);
 
         result = numberParse;
         numbers = [0];
     }
-    if (contOpr > 0) {
+    if (count.contOpr > 0) {
         let numberJoin = numbers.join('');
         let numberParse = parseInt(numberJoin, 10);
         newresult = numberParse
@@ -64,26 +69,37 @@ var subtract = () => {
 
     resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
 
-    contSub = true;
-    contAdd = false;
-    contMult = false;
-    contOpr += 1;
+    count.contSub = true;
+    count.contAdd = false;
+    count.contMult = false;
+    count.contOpr += 1;
 
 }
 var multiply = () => {
 
-    if (contOpr === 0) {
+    if (count.contOpr === 0) {
         let numberJoin = numbers.join('');
         let numberParse = parseInt(numberJoin, 10);
-
+        console.log('entrou no if 0')
         result = numberParse;
         numbers = [0];
     }
-    if (contOpr > 0) {
-        let numberJoin = numbers.join('');
-        let numberParse = parseInt(numberJoin, 10);
-        newresult = numberParse
-        result = (newresult) * (result);
+    if (count.contOpr > 0) {
+        if (numbers.length < 2) {
+            numbers = [1];
+            let numberJoin = numbers.join('');
+            let numberParse = parseInt(numberJoin, 10);
+            newresult = numberParse
+            result = (newresult) * (result);
+            console.log('entrou no if >0')
+        } else {
+            let numberJoin = numbers.join('');
+            let numberParse = parseInt(numberJoin, 10);
+            newresult = numberParse
+            result = (newresult) * (result);
+            numbers = [0];
+            console.log('entrou no else')
+        }
         numbers = [0];
     }
 
@@ -91,10 +107,10 @@ var multiply = () => {
 
     resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
 
-    contMult = true;
-    contSub = false;
-    contAdd = false;
-    contOpr += 1;
+    count.contMult = true;
+    count.contSub = false;
+    count.contAdd = false;
+    count.contOpr += 1;
 }
 
 //eventos de click
@@ -139,13 +155,13 @@ window.addEventListener("click", function (event) {
     }
     equal.onclick = () => {
 
-        if (contAdd === true) {
+        if (count.contAdd === true) {
             soma()
         }
-        if (contSub === true) {
+        if (count.contSub === true) {
             subtract()
         }
-        if (contMult === true) {
+        if (count.contMult === true) {
             multiply();
         }
     };
