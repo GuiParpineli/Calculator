@@ -52,6 +52,11 @@
     flex-wrap: wrap;
     justify-content: right;
 }
+#resultado {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+}
 
 .keyboard {
     display: flex;

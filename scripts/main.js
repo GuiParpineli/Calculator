@@ -1,7 +1,7 @@
 const selectId = a => document.getElementById(a);
-const add = selectId('adicao');
+const add = selectId('+');
 const equal = selectId('btn-equal');
-const sub = selectId('subtracao');
+const sub = selectId('-');
 var idElement = '';
 var numbers = [0];
 var classElement = '';
@@ -11,8 +11,8 @@ var somaQ = 0;
 var subQ = 0;
 var arrayNumbers = [];
 var result = 0;
-var contAdd = 0;
-var contSub = 0;
+var contAdd = false;
+var contSub = false;
 
 window.addEventListener("click", function (event) {
 
@@ -31,17 +31,16 @@ window.addEventListener("click", function (event) {
     if (classElement === 'number') {
         numbers.push(idElement);
         //appends
-        resultado.innerHTML = ''
+
         screenNumber.innerHTML += `<p class='visor-text'>  ${idElement} </p>`
     }
 
     else {
-
-        if (idElement === 'adicao') {
-            screenNumber.innerHTML += `<p class='visor-text'>  + </p>`
+        if (idElement === '+') {
+            screenNumber.innerHTML += `<p class='visor-text'>  ${idElement} </p>`
         }
-        if (idElement === 'subtracao') {
-            screenNumber.innerHTML += `<p class='visor-text'>  - </p>`
+        if (idElement === '-') {
+            screenNumber.innerHTML = `<p class='visor-text'>  ${idElement} </p>`
         }
     }
 
@@ -72,7 +71,8 @@ window.addEventListener("click", function (event) {
         resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
         console.log(result)
 
-        contAdd += 1;
+        contAdd = true;
+        contSub = false;
         somaQ += 1;
         subQ += 1;
     }
@@ -81,9 +81,7 @@ window.addEventListener("click", function (event) {
 
         arrayNumbers = [0];
 
-
         if (subQ == 0) {
-
             var numberJoin = numbers.join('');
             var numberParse = parseInt(numberJoin, 10);
             arrayNumbers.push(numberParse);
@@ -94,58 +92,53 @@ window.addEventListener("click", function (event) {
             var numberJoin = numbers.join('');
             var numberParse = parseInt(numberJoin, 10);
             arrayNumbers.push(numberParse);
+
             numbers = [0];
             newresult = arrayNumbers.reduce((a, b) => b - a);
             result = (-newresult) - (-result);
-
         }
 
-        screenNumber.innerHTML = ``;
+        screenNumber.innerHTML = ` `;
 
         resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
         console.log(result)
 
-        contSub += 1;
+        contSub = true;
+        contAdd = false;
         subQ += 1;
         somaQ += 1;
     }
 
     equal.onclick = () => {
 
-        if (contAdd > contSub) {
-
-            if (somaQ == 0) {
-
-                console.log('resultado' + result)
-                var numberJoin = numbers.join('');
-                var numberParse = parseInt(numberJoin, 10);
-                arrayNumbers.push(numberParse);
-                arrayNumbers.sort((a, b) => (b + a));
-                console.log('arraynumbers' + arrayNumbers)
-                numbers = [0];
-                result = arrayNumbers.reduce((a, b) => (b + a));
-                screenNumber.innerHTML = ``;
-
-                resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-                console.log('somba' + result)
-            }
-            if (contSub > contAdd) {
-                console.log('resultado' + result)
-                var numberJoin = numbers.join('');
-                var numberParse = parseInt(numberJoin, 10);
-                arrayNumbers.push(numberParse);
-                arrayNumbers.sort((a, b) => (b - a));
-                console.log('arraynumbers' + arrayNumbers)
-                numbers = [0];
-                result = arrayNumbers.reduce((a, b) => (b - a));
-                screenNumber.innerHTML = ``;
-
-                resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-                console.log('subtracao' + result)
-            }
+        if (contAdd === true) {
+            console.log('resultado' + result)
+            var numberJoin = numbers.join('');
+            var numberParse = parseInt(numberJoin, 10);
+            arrayNumbers.push(numberParse);
+            numbers = [0];
+            newresult = arrayNumbers.reduce((a, b) => b + a);
+            result = newresult;
+            screenNumber.innerHTML = ``;
+            resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
+            console.log('somba' + result)
+        }
+        if (contSub === true) {
+            console.log('resultado' + result)
+            var numberJoin = numbers.join('');
+            var numberParse = parseInt(numberJoin, 10);
+            arrayNumbers.push(numberParse);
+            numbers = [0];
+            newresult = arrayNumbers.reduce((a, b) => b - a);
+            result = (-newresult) - (-result);
+            console.log('arraynumbers' + arrayNumbers)
+            screenNumber.innerHTML = ``;
+            resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
+            console.log('subtracao' + result)
         }
     }
 }
+
 );
 
 
