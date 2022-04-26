@@ -14,6 +14,70 @@ var result = 0;
 var contAdd = false;
 var contSub = false;
 
+
+var soma = () => {
+    arrayNumbers = [0];
+
+    if (somaQ == 0) {
+
+        var numberJoin = numbers.join('');
+        var numberParse = parseInt(numberJoin, 10);
+        arrayNumbers.push(numberParse);
+        result = arrayNumbers.reduce((a, b) => (b + a));
+        numbers = [0];
+    }
+    if (somaQ > 0) {
+        var numberJoin = numbers.join('');
+        var numberParse = parseInt(numberJoin, 10);
+        arrayNumbers.push(numberParse);
+        numbers = [0];
+        newresult = arrayNumbers.reduce((a, b) => b + a);
+        result = (newresult) + (result);
+
+    }
+    screenNumber.innerHTML = ` `;
+
+    resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
+    console.log(result)
+
+    contAdd = true;
+    contSub = false;
+    somaQ += 1;
+    subQ += 1;
+}
+
+var subtract = () => {
+
+    arrayNumbers = [0];
+
+    if (subQ == 0) {
+        var numberJoin = numbers.join('');
+        var numberParse = parseInt(numberJoin, 10);
+        arrayNumbers.push(numberParse);
+        result = arrayNumbers.reduce((a, b) => (b - a));
+        numbers = [0];
+    }
+    if (subQ > 0) {
+        var numberJoin = numbers.join('');
+        var numberParse = parseInt(numberJoin, 10);
+        arrayNumbers.push(numberParse);
+
+        numbers = [0];
+        newresult = arrayNumbers.reduce((a, b) => b - a);
+        result = (-newresult) - (-result);
+    }
+
+    screenNumber.innerHTML = ` `;
+
+    resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
+    console.log(result)
+
+    contSub = true;
+    contAdd = false;
+    subQ += 1;
+    somaQ += 1;
+}
+
 window.addEventListener("click", function (event) {
 
     idElement = event.target.id;
@@ -31,7 +95,7 @@ window.addEventListener("click", function (event) {
     if (classElement === 'number') {
         numbers.push(idElement);
         //appends
-        
+
         screenNumber.innerHTML += `<p class='visor-text'>  ${idElement} </p>`
     }
 
@@ -44,137 +108,24 @@ window.addEventListener("click", function (event) {
         }
     }
 
-
     add.onclick = () => {
-
-        arrayNumbers = [0];
-
-        if (somaQ == 0) {
-
-            var numberJoin = numbers.join('');
-            var numberParse = parseInt(numberJoin, 10);
-            arrayNumbers.push(numberParse);
-            result = arrayNumbers.reduce((a, b) => (b + a));
-            numbers = [0];
-        }
-        if (somaQ > 0) {
-            var numberJoin = numbers.join('');
-            var numberParse = parseInt(numberJoin, 10);
-            arrayNumbers.push(numberParse);
-            numbers = [0];
-            newresult = arrayNumbers.reduce((a, b) => b + a);
-            result = (newresult) + (result);
-
-        }
-        screenNumber.innerHTML = ` `;
-
-        resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-        console.log(result)
-
-        contAdd = true;
-        contSub = false;
-        somaQ += 1;
-        subQ += 1;
+        soma()
     }
 
     sub.onclick = () => {
-
-        arrayNumbers = [0];
-
-        if (subQ == 0) {
-            var numberJoin = numbers.join('');
-            var numberParse = parseInt(numberJoin, 10);
-            arrayNumbers.push(numberParse);
-            result = arrayNumbers.reduce((a, b) => (b - a));
-            numbers = [0];
-        }
-        if (subQ > 0) {
-            var numberJoin = numbers.join('');
-            var numberParse = parseInt(numberJoin, 10);
-            arrayNumbers.push(numberParse);
-
-            numbers = [0];
-            newresult = arrayNumbers.reduce((a, b) => b - a);
-            result = (-newresult) - (-result);
-        }
-
-        screenNumber.innerHTML = ` `;
-
-        resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-        console.log(result)
-
-        contSub = true;
-        contAdd = false;
-        subQ += 1;
-        somaQ += 1;
+        subtract();
     }
 
     equal.onclick = () => {
 
         if (contAdd === true) {
-            arrayNumbers = [0];
-
-            if (somaQ == 0) {
-    
-                var numberJoin = numbers.join('');
-                var numberParse = parseInt(numberJoin, 10);
-                arrayNumbers.push(numberParse);
-                result = arrayNumbers.reduce((a, b) => (b + a));
-                numbers = [0];
-            }
-            if (somaQ > 0) {
-                var numberJoin = numbers.join('');
-                var numberParse = parseInt(numberJoin, 10);
-                arrayNumbers.push(numberParse);
-                numbers = [0];
-                newresult = arrayNumbers.reduce((a, b) => b + a);
-                result = (newresult) + (result);
-    
-            }
-            screenNumber.innerHTML = ` `;
-    
-            resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-            console.log(result)
-    
-            contAdd = true;
-            contSub = false;
-            somaQ += 1;
-            subQ += 1;
+            soma()
         }
         if (contSub === true) {
-            arrayNumbers = [0];
-
-            if (subQ == 0) {
-                var numberJoin = numbers.join('');
-                var numberParse = parseInt(numberJoin, 10);
-                arrayNumbers.push(numberParse);
-                result = arrayNumbers.reduce((a, b) => (b - a));
-                numbers = [0];
-            }
-            if (subQ > 0) {
-                var numberJoin = numbers.join('');
-                var numberParse = parseInt(numberJoin, 10);
-                arrayNumbers.push(numberParse);
-    
-                numbers = [0];
-                newresult = arrayNumbers.reduce((a, b) => b - a);
-                result = (-newresult) - (-result);
-            }
-    
-            screenNumber.innerHTML = ` `;
-    
-            resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-            console.log(result)
-    
-            contSub = true;
-            contAdd = false;
-            subQ += 1;
-            somaQ += 1;
+            subtract()
         }
     }
-}
-
-);
+});
 
 
 
