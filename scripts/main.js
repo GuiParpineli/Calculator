@@ -22,16 +22,22 @@ const count = {
     contDiv: false
 }
 
-//funcoes matematicas
-var soma = () => {
-
+const convertFirst = () => {
     if (count.contOpr === 0) {
-
         let numberJoin = numbers.join('');
         let numberParse = parseFloat(numberJoin, 10);
         result = numberParse;
         numbers = [0];
     }
+};
+
+
+
+//funcoes matematicas
+var soma = () => {
+
+    convertFirst();
+
     if (count.contOpr > 0) {
         let numberJoin = numbers.join('');
         let numberParse = parseFloat(numberJoin, 10);
@@ -53,13 +59,7 @@ var soma = () => {
 
 var subtract = () => {
 
-    if (count.contOpr === 0) {
-        let numberJoin = numbers.join('');
-        let numberParse = parseFloat(numberJoin, 10);
-
-        result = numberParse;
-        numbers = [0];
-    }
+    convertFirst();
     if (count.contOpr > 0) {
         let numberJoin = numbers.join('');
         let numberParse = parseFloat(numberJoin, 10);
@@ -81,13 +81,7 @@ var subtract = () => {
 }
 var multiply = () => {
 
-    if (count.contOpr === 0) {
-        let numberJoin = numbers.join('');
-        let numberParse = parseFloat(numberJoin, 10);
-        console.log('entrou no if 0')
-        result = numberParse;
-        numbers = [0];
-    }
+   convertFirst();
     if (count.contOpr > 0) {
         if (numbers.length < 2) {
             numbers = [1];
@@ -119,12 +113,8 @@ var multiply = () => {
 }
 var divis = () => {
 
-    if (count.contOpr === 0) {
-        let numberJoin = numbers.join('');
-        let numberParse = parseFloat(numberJoin, 10);
-        result = numberParse;
-        numbers = [0];
-    }
+   convertFirst();
+
     if (count.contOpr > 0) {
         if (numbers.length < 2) {
             numbers = [1];
