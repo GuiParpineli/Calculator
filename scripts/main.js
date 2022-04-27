@@ -121,7 +121,10 @@ window.addEventListener("click", function (event) {
 
     if (idElement === 'clean') {
         arrayNumbers = [];
-        contOpr = 0;
+        count.contAdd = false;
+        count.contSub = false;
+        count.contMult = false;
+        count.contOpr = 0;
         numbers = [];
         screenNumber.innerHTML = '';
         resultado.innerHTML = '';
