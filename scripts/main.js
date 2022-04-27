@@ -28,13 +28,13 @@ var soma = () => {
     if (count.contOpr === 0) {
 
         let numberJoin = numbers.join('');
-        let numberParse = parseInt(numberJoin, 10);
+        let numberParse = parseFloat(numberJoin, 10);
         result = numberParse;
         numbers = [0];
     }
     if (count.contOpr > 0) {
         let numberJoin = numbers.join('');
-        let numberParse = parseInt(numberJoin, 10);
+        let numberParse = parseFloat(numberJoin, 10);
         newresult = numberParse
         result = (newresult) + (result);
         numbers = [0];
@@ -55,14 +55,14 @@ var subtract = () => {
 
     if (count.contOpr === 0) {
         let numberJoin = numbers.join('');
-        let numberParse = parseInt(numberJoin, 10);
+        let numberParse = parseFloat(numberJoin, 10);
 
         result = numberParse;
         numbers = [0];
     }
     if (count.contOpr > 0) {
         let numberJoin = numbers.join('');
-        let numberParse = parseInt(numberJoin, 10);
+        let numberParse = parseFloat(numberJoin, 10);
         newresult = numberParse
         result = (-newresult) - (-result);
         numbers = [0];
@@ -83,7 +83,7 @@ var multiply = () => {
 
     if (count.contOpr === 0) {
         let numberJoin = numbers.join('');
-        let numberParse = parseInt(numberJoin, 10);
+        let numberParse = parseFloat(numberJoin, 10);
         console.log('entrou no if 0')
         result = numberParse;
         numbers = [0];
@@ -92,13 +92,13 @@ var multiply = () => {
         if (numbers.length < 2) {
             numbers = [1];
             let numberJoin = numbers.join('');
-            let numberParse = parseInt(numberJoin, 10);
+            let numberParse = parseFloat(numberJoin, 10);
             newresult = numberParse
             result = (newresult) * (result);
             console.log('entrou no if >0')
         } else {
             let numberJoin = numbers.join('');
-            let numberParse = parseInt(numberJoin, 10);
+            let numberParse = parseFloat(numberJoin, 10);
             newresult = numberParse
             result = (newresult) * (result);
             numbers = [0];
@@ -121,7 +121,7 @@ var divis = () => {
 
     if (count.contOpr === 0) {
         let numberJoin = numbers.join('');
-        let numberParse = parseInt(numberJoin, 10);
+        let numberParse = parseFloat(numberJoin, 10);
         result = numberParse;
         numbers = [0];
     }
@@ -129,7 +129,7 @@ var divis = () => {
         if (numbers.length < 2) {
             numbers = [1];
             let numberJoin = numbers.join('');
-            let numberParse = parseInt(numberJoin, 10);
+            let numberParse = parseFloat(numberJoin, 10);
             newresult = numberParse;
             let newnumber = [];
             newnumber.push(newresult, result)
@@ -139,7 +139,7 @@ var divis = () => {
 
         } else {
             let numberJoin = numbers.join('');
-            let numberParse = parseInt(numberJoin, 10);
+            let numberParse = parseFloat(numberJoin, 10);
             newresult = numberParse;
             let newnumber = [];
             newnumber.push(newresult, result)
