@@ -143,7 +143,7 @@ window.addEventListener("click", function (event) {
         if (idElement === 'x') {
             screenNumber.innerHTML = `<p class='visor-text'>  ${idElement} </p>`
         }
-    }
+    };
 
     add.onclick = () => {
         soma()
