@@ -122,9 +122,7 @@ var divis = () => {
     if (count.contOpr === 0) {
         let numberJoin = numbers.join('');
         let numberParse = parseInt(numberJoin, 10);
-
         result = numberParse;
-        console.log('result if 01 ' + result)
         numbers = [0];
     }
     if (count.contOpr > 0) {
@@ -136,11 +134,9 @@ var divis = () => {
             let newnumber = [];
             newnumber.push(newresult, result)
             newnumber.sort((a, b) => b - a);
-            console.log('newnumber' + newnumber)
-            console.log('result antes' + result)
             result = newnumber.reduce((a, b) => a / b);
             numbers = [0];
-            console.log('result else' + result)
+
         } else {
             let numberJoin = numbers.join('');
             let numberParse = parseInt(numberJoin, 10);
@@ -148,11 +144,8 @@ var divis = () => {
             let newnumber = [];
             newnumber.push(newresult, result)
             newnumber.sort((a, b) => b - a);
-            console.log('newnumber' + newnumber)
-            console.log('result antes' + result)
             result = newnumber.reduce((a, b) => a / b);
             numbers = [0];
-            console.log('result else' + result)
         }
         numbers = [0];
     }
