@@ -6,6 +6,7 @@ const sub = selectId('-');
 const mult = selectId('x');
 const screenNumber = selectId('screen-numbers');
 const resultado = selectId('resultado');
+const division = selectId('÷');
 var idElement = '';
 var numbers = [0];
 var classElement = '';
@@ -17,7 +18,8 @@ const count = {
     contOpr: 0,
     contAdd: false,
     contSub: false,
-    contMult: false
+    contMult: false,
+    contDiv: false
 }
 
 //funcoes matematicas
@@ -44,6 +46,7 @@ var soma = () => {
     count.contAdd = true;
     count.contSub = false;
     count.contMult = false;
+    count.contDiv = false;
     count.contOpr += 1;
 
 }
@@ -72,6 +75,7 @@ var subtract = () => {
     count.contSub = true;
     count.contAdd = false;
     count.contMult = false;
+    count.contDiv = false;
     count.contOpr += 1;
 
 }
@@ -110,6 +114,57 @@ var multiply = () => {
     count.contMult = true;
     count.contSub = false;
     count.contAdd = false;
+    count.contDiv = false;
+    count.contOpr += 1;
+}
+var divis = () => {
+
+    if (count.contOpr === 0) {
+        let numberJoin = numbers.join('');
+        let numberParse = parseInt(numberJoin, 10);
+
+        result = numberParse;
+        console.log('result if 01 ' + result)
+        numbers = [0];
+    }
+    if (count.contOpr > 0) {
+        if (numbers.length < 2) {
+            numbers = [1];
+            let numberJoin = numbers.join('');
+            let numberParse = parseInt(numberJoin, 10);
+            newresult = numberParse;
+            let newnumber = [];
+            newnumber.push(newresult, result)
+            newnumber.sort((a, b) => b - a);
+            console.log('newnumber' + newnumber)
+            console.log('result antes' + result)
+            result = newnumber.reduce((a, b) => a / b);
+            numbers = [0];
+            console.log('result else' + result)
+        } else {
+            let numberJoin = numbers.join('');
+            let numberParse = parseInt(numberJoin, 10);
+            newresult = numberParse;
+            let newnumber = [];
+            newnumber.push(newresult, result)
+            newnumber.sort((a, b) => b - a);
+            console.log('newnumber' + newnumber)
+            console.log('result antes' + result)
+            result = newnumber.reduce((a, b) => a / b);
+            numbers = [0];
+            console.log('result else' + result)
+        }
+        numbers = [0];
+    }
+
+    screenNumber.innerHTML = ` `;
+
+    resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
+
+    count.contDiv = true;
+    count.contAdd = false;
+    count.contMult = false;
+    count.contSub = false;
     count.contOpr += 1;
 }
 
@@ -143,7 +198,11 @@ window.addEventListener("click", function (event) {
         if (idElement === 'x') {
             screenNumber.innerHTML = `<p class='visor-text'>  ${idElement} </p>`
         }
-    };
+        if (idElement === '÷') {
+            screenNumber.innerHTML = `<p class='visor-text'>  ${idElement} </p>`
+        }
+    }
+    ;
 
     add.onclick = () => {
         soma()
@@ -156,6 +215,9 @@ window.addEventListener("click", function (event) {
     mult.onclick = () => {
         multiply();
     }
+    division.onclick = () => {
+        divis();
+    }
     equal.onclick = () => {
 
         if (count.contAdd === true) {
@@ -166,6 +228,9 @@ window.addEventListener("click", function (event) {
         }
         if (count.contMult === true) {
             multiply();
+        }
+        if (count.contDiv === true) {
+            divis();
         }
     };
 });
