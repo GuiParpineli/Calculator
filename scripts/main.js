@@ -1,24 +1,13 @@
-const selectId = a => document.getElementById(a);
 //variaveis globais
-const equal = selectId('btn-equal');
-const screenNumber = selectId('screen-numbers');
+const screenNumber = document.getElementById('screen-numbers');
 var operador = '';
-var numbers = [0];
 var classElement = '';
 var result = 0;
 
-const clean = () => {
-    screenNumber.value = '';
-}
+const clean = () => screenNumber.value = '';
+
 window.onload = clean();
-//objeto com dados de contadores
-const count = {
-    contOpr: 0,
-    contAdd: false,
-    contSub: false,
-    contMult: false,
-    contDiv: false
-}
+
 const convert = () => {
     result = parseFloat(screenNumber.value, 10);
     if (screenNumber.value.includes(operador)) {
@@ -31,10 +20,10 @@ const convert = () => {
             case '-':
                 result -= newResult
                 break;
-            case '*':
+            case 'x':
                 result *= newResult
                 break;
-            case '/':
+            case '÷':
                 result /= newResult
                 break;
         }
