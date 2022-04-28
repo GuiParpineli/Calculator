@@ -8,10 +8,10 @@
     font-size: 30px;
 }
 body{
-    background-color: #39393d;
+    background-color: #232325;
 }
 .container {
-    background-color: black;
+    background-color: #141f28;
     width: 10em;
     height: 15em;
     position: absolute;
@@ -19,7 +19,7 @@ body{
     left: 50%;
     transform: translate(-50%);
     margin-top: 5%;
-    border-radius: .8em;
+    border-radius: 2em;
     box-shadow: 5px 5px 5px rgb(96, 103, 105);
 }
 
@@ -43,11 +43,12 @@ body{
 #screen-numbers {
     width: 80%;
     height: 2em;
-    border-radius: .3em;
-    background-color: rgb(132, 202, 138);
+    border-radius: .7em;
+    background-color: rgb(72, 72, 72);
     display: flex;
     flex-wrap: wrap;
     text-align: right;
+    color: white;
 }
 
 
@@ -89,7 +90,7 @@ li>button {
     border-radius: 50%;
 }
 li>button:hover {
-   color: rgb(50,50,50);
+   box-shadow: 2px 2px 2px rgb(50,50,50);
 }
 li>button:active {
     transform: scale(.8);
@@ -111,6 +112,6 @@ li>button:active {
     height: 190%;
     background-color: green;
     color: white;
-    border-radius: 5%;
+    border-radius: 15%;
     top: 5%;
 }
