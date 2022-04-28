@@ -1,15 +1,16 @@
 const selectId = a => document.getElementById(a);
-
 //variaveis globais
 const equal = selectId('btn-equal');
 const screenNumber = selectId('screen-numbers');
-const resultado = selectId('resultado');
-var idElement = '';
+var operador = '';
 var numbers = [0];
 var classElement = '';
-var newresult = 0;
 var result = 0;
 
+const clean = () => {
+    screenNumber.value = '';
+}
+window.onload = clean();
 //objeto com dados de contadores
 const count = {
     contOpr: 0,
@@ -18,159 +19,40 @@ const count = {
     contMult: false,
     contDiv: false
 }
-
-const convertFirst = () => {
-    if (count.contOpr === 0) {
-        let numberJoin = numbers.join('');
-        let numberParse = parseFloat(numberJoin, 10);
-        result = numberParse;
-        numbers = [0];
-    }
-};
-
-//funcoes matematicas
-var soma = () => {
-    convertFirst();
-    if (count.contOpr > 0) {
-        let numberJoin = numbers.join('');
-        let numberParse = parseFloat(numberJoin, 10);
-        newresult = numberParse
-        result = (newresult) + (result);
-        numbers = [0];
-    }
-    screenNumber.innerHTML = ` `;
-    resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-    count.contAdd = true;
-    count.contSub = false;
-    count.contMult = false;
-    count.contDiv = false;
-    count.contOpr += 1;
-}
-
-var subtract = () => {
-    convertFirst();
-    if (count.contOpr > 0) {
-        let numberJoin = numbers.join('');
-        let numberParse = parseFloat(numberJoin, 10);
-        newresult = numberParse
-        result = (-newresult) - (-result);
-        numbers = [0];
-    }
-    screenNumber.innerHTML = ` `;
-    resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-    count.contSub = true;
-    count.contAdd = false;
-    count.contMult = false;
-    count.contDiv = false;
-    count.contOpr += 1;
-}
-var multiply = () => {
-    convertFirst();
-    if (count.contOpr > 0) {
-        if (numbers.length < 2) {
-            numbers = [1];
-            let numberJoin = numbers.join('');
-            let numberParse = parseFloat(numberJoin, 10);
-            newresult = numberParse
-            result = (newresult) * (result);
-        } else {
-            let numberJoin = numbers.join('');
-            let numberParse = parseFloat(numberJoin, 10);
-            newresult = numberParse
-            result = (newresult) * (result);
-            numbers = [0];
+const convert = () => {
+    result = parseFloat(screenNumber.value, 10);
+    if (screenNumber.value.includes(operador)) {
+        let indexOpr = screenNumber.value.indexOf(operador)
+        let newResult = parseFloat(screenNumber.value.slice(indexOpr + 1));
+        switch (operador) {
+            case '+':
+                result += newResult;
+                break;
+            case '-':
+                result -= newResult
+                break;
+            case '*':
+                result *= newResult
+                break;
+            case '/':
+                result /= newResult
+                break;
         }
-        numbers = [0];
+    } else {
+        result = parseFloat(screenNumber.value, 10);
     }
-    screenNumber.innerHTML = ` `;
-    resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-    count.contMult = true;
-    count.contSub = false;
-    count.contAdd = false;
-    count.contDiv = false;
-    count.contOpr += 1;
-}
-var divis = () => {
-    convertFirst();
-    if (count.contOpr > 0) {
-        if (numbers.length < 2) {
-            numbers = [1];
-            let numberJoin = numbers.join('');
-            let numberParse = parseFloat(numberJoin, 10);
-            newresult = numberParse;
-            let newnumber = [];
-            newnumber.push(newresult, result)
-            newnumber.sort((a, b) => b - a);
-            result = newnumber.reduce((a, b) => a / b);
-            numbers = [0];
-        } else {
-            let numberJoin = numbers.join('');
-            let numberParse = parseFloat(numberJoin, 10);
-            newresult = numberParse;
-            let newnumber = [];
-            newnumber.push(newresult, result)
-            newnumber.sort((a, b) => b - a);
-            result = newnumber.reduce((a, b) => a / b);
-            numbers = [0];
-        }
-        numbers = [0];
-    }
-    screenNumber.innerHTML = ` `;
-    resultado.innerHTML = `<p class='visor-text' id='resultado'> ${result} </p>`
-    count.contDiv = true;
-    count.contAdd = false;
-    count.contMult = false;
-    count.contSub = false;
-    count.contOpr += 1;
-}
-
-const clean = () => {
-    arrayNumbers = [];
-    count.contAdd = false;
-    count.contSub = false;
-    count.contMult = false;
-    count.contDiv = false;
-    count.contOpr = 0;
-    numbers = [];
-    screenNumber.innerHTML = '';
-    resultado.innerHTML = '';
+    screenNumber.value = result
 }
 //eventos de click
 window.addEventListener("click", function (event) {
-    idElement = event.target.id;
+    valueElement = event.target.value;
     classElement = event.target.className;
-
-    if (classElement === 'number') {
-        numbers.push(idElement);
-        screenNumber.innerHTML += `<p class='visor-text'>  ${idElement} </p>`
-    } else {
-        if (idElement === '+') {
-            screenNumber.innerHTML += `<p class='visor-text'>  ${idElement} </p>`
-        }
-        if (idElement === '-') {
-            screenNumber.innerHTML = `<p class='visor-text'>  ${idElement} </p>`
-        }
-        if (idElement === 'x') {
-            screenNumber.innerHTML = `<p class='visor-text'>  ${idElement} </p>`
-        }
-        if (idElement === '÷') {
-            screenNumber.innerHTML = `<p class='visor-text'>  ${idElement} </p>`
-        }
+    switch (classElement) {
+        case 'number' :
+            screenNumber.value += valueElement
+            break;
+        case 'operador' :
+            operador = valueElement
+            screenNumber.value += valueElement
     }
-
-    equal.onclick = () => {
-
-        if (count.contAdd === true) {
-            soma()
-        }
-        if (count.contSub === true) {
-            subtract()
-        }
-        if (count.contMult === true) {
-            multiply();
-        }
-        if (count.contDiv === true) {
-            divis();
-        }
-    };
 });
