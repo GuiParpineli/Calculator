@@ -74,7 +74,6 @@ body {
 
 li {
     text-align: center;
-    color: white;
     width: 2em;
     list-style: none;
     display: flex;
@@ -84,8 +83,9 @@ li {
 
 li > button {
     cursor: pointer;
-    color: black;
-    background-color: rgb(196, 197, 199);
+    color: #000021;
+    background-color: rgb(215, 215, 215);
+    box-shadow: 3px 5px 5px rgb(22, 22, 75);
     padding: 8px;
     width: 90%;
     border-radius: 50%;
@@ -93,6 +93,7 @@ li > button {
 
 li > button:hover {
      transform: scale(1.1);
+    background-color: rgb(1, 1, 61);
 }
 
 li > button:active {
@@ -103,18 +104,13 @@ li > button:active {
     background-color: red;
     color: white;
 }
-
-.equal {
-    position: relative;
-    align-items: baseline;
+#backspace {
+    background-color: #ff7f02;
+    color: #ffffff;
 }
 
-.equal button {
-    position: relative;
-    width: 90%;
-    height: 190%;
-    background-color: #ff7f02;
+#btn-equal {
+    background-color: #248149;
     color: white;
-    border-radius: 10%;
-    top: 5%;
+    border-radius: 50%;
 }

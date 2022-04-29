@@ -3,8 +3,11 @@ var operador = '';
 var classElement = '';
 var result = 0;
 const clean = () => screenNumber.value = '';
-window.onload = clean();
-
+onload = clean();
+const backspace = () => {
+    let total = screenNumber.value.length
+    screenNumber.value = screenNumber.value.slice(0, total - 1);
+}
 const convert = () => {
     result = parseFloat(screenNumber.value, 10);
     if (screenNumber.value.includes(operador)) {
