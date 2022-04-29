@@ -18,7 +18,7 @@ Fazer uma calculdora simples, que consiga executar funções de soma,subtração
     - [x] Subtração
     - [x] Multiplicação
     - [x] Divisão
-    - [ ] Porcentagem
+    - [x] Porcentagem
   
 - Melhorias:
   - [x] Clean code
