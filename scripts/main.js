@@ -26,20 +26,6 @@ const convert = () => {
             case '÷':
                 result /= newResult
                 break;
-            case '%':
-                if (screenNumber.value.includes('+')) {
-                    result / 100 + newResult
-                }
-                if (screenNumber.value.includes('-')) {
-                    result / 100 - newResult
-                }
-                if (screenNumber.value.includes('x')) {
-                    (result / 100) * newResult
-                }
-                if (screenNumber.value.includes('÷')) {
-                    (result / 100) / newResult
-                }
-                break;
         }
     } else {
         result = parseFloat(screenNumber.value, 10);
