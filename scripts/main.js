@@ -10,6 +10,9 @@ const convert = () => {
     if (screenNumber.value.includes(operador)) {
         let indexOpr = screenNumber.value.indexOf(operador)
         let newResult = parseFloat(screenNumber.value.slice(indexOpr + 1));
+        if (isNaN(result)) {
+            screenNumber.value = '';
+        }
         switch (operador) {
             case '+':
                 result += newResult;
@@ -24,10 +27,12 @@ const convert = () => {
                 result /= newResult
                 break;
         }
-    } else {
-        result = parseFloat(screenNumber.value, 10);
     }
-    screenNumber.value = result
+    if (isNaN(result)) {
+        screenNumber.value = '';
+    } else {
+        screenNumber.value = result
+    }
 }
 //eventos de click
 window.addEventListener("click", function (event) {
