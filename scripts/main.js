@@ -1,11 +1,8 @@
-//variaveis globais
 const screenNumber = document.getElementById('screen-numbers');
 var operador = '';
 var classElement = '';
 var result = 0;
-
 const clean = () => screenNumber.value = '';
-
 window.onload = clean();
 
 const convert = () => {
