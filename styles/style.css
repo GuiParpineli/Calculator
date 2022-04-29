@@ -93,7 +93,6 @@ li > button {
 
 li > button:hover {
      transform: scale(1.1);
-    background-color: rgb(1, 1, 61);
 }
 
 li > button:active {
