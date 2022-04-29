@@ -6,9 +6,11 @@
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
 }
-body{
+
+body {
     background-color: #232325;
 }
+
 .container {
     background-color: #141f28;
     width: 10em;
@@ -80,7 +82,7 @@ li {
     justify-content: center;
 }
 
-li>button {
+li > button {
     cursor: pointer;
     color: black;
     background-color: rgb(196, 197, 199);
@@ -88,10 +90,12 @@ li>button {
     width: 90%;
     border-radius: 50%;
 }
-li>button:hover {
-   box-shadow: 2px 2px 2px rgb(50,50,50);
+
+li > button:hover {
+    box-shadow: 1px 0px 2px rgb(255, 169, 0);
 }
-li>button:active {
+
+li > button:active {
     transform: scale(.8);
 }
 
