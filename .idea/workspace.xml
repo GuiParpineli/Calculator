@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d257c05c-7ad4-4c2c-a685-ec0f0f08f8ee" name="Changes" comment="ajustando clean code">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/styles/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/styles/style.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="4f119978-676e-48eb-b5d7-2ae1bdf642b0" />
+        <option name="url" value="https://github.com/GuiParpineli/Calculator.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="28JXUtdOZYFi8xm2gls8k0Yl7w9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/guiparpineli/Documents/Calculadora&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.web.browsers&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Calculadora/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d257c05c-7ad4-4c2c-a685-ec0f0f08f8ee" name="Changes" comment="" />
+      <created>1650935682106</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650935682106</updated>
+      <workItem from="1650935685688" duration="1018000" />
+      <workItem from="1650970520066" duration="51000" />
+      <workItem from="1650970580969" duration="307000" />
+      <workItem from="1650970900007" duration="327000" />
+      <workItem from="1650986283005" duration="3459000" />
+      <workItem from="1651007016322" duration="4990000" />
+      <workItem from="1651019691145" duration="3674000" />
+      <workItem from="1651023824544" duration="448000" />
+      <workItem from="1651056740969" duration="1536000" />
+      <workItem from="1651093285334" duration="4990000" />
+      <workItem from="1651098323753" duration="677000" />
+      <workItem from="1651100155959" duration="123000" />
+      <workItem from="1651100295584" duration="2152000" />
+      <workItem from="1651108278440" duration="347000" />
+      <workItem from="1651108637105" duration="1107000" />
+      <workItem from="1651109756046" duration="908000" />
+      <workItem from="1651110828701" duration="537000" />
+      <workItem from="1651111378354" duration="349000" />
+      <workItem from="1651142830522" duration="26000" />
+      <workItem from="1651142970184" duration="65000" />
+      <workItem from="1651143045194" duration="1265000" />
+      <workItem from="1651167225904" duration="6308000" />
+      <workItem from="1651173554208" duration="754000" />
+      <workItem from="1651174318577" duration="5673000" />
+      <workItem from="1651180009943" duration="2480000" />
+      <workItem from="1651187214465" duration="1959000" />
+      <workItem from="1651191513835" duration="17000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="ajustando clean code" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajustando clean code" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
