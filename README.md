@@ -4,7 +4,7 @@ Projeto tem a ideia de sintetizar todo conhecimento que obtive,
 sem usar tutoriais, apenas minha lógica e documentação como da Mozila.
 Provalvemente o codigo está com erros ou longo demais, a ideia é ir atualizando conforme aprendo mais sobre.
 
-<img  style='position:relative; left:50% ; transform:translate(-50%)' src='assets/calculator.png'>
+<img  style='position:relative; right:50% ; transform:translate(-50%)' src='assets/calculator.png'>
 
 <hr>
 
