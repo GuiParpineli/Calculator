@@ -42,7 +42,7 @@ body {
 
 #screen-numbers {
     width: 90%;
-    background-color: rgb(1, 1, 21);
+    background: linear-gradient(180deg, rgb(37, 37, 80) 0%, rgb(3, 3, 100) 35%, rgb(2, 2, 80) 100%);
     border-radius: .6em;
     display: flex;
     flex-wrap: wrap;
@@ -92,7 +92,7 @@ li > button {
 }
 
 li > button:hover {
-     transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 li > button:active {
@@ -103,6 +103,7 @@ li > button:active {
     background-color: red;
     color: white;
 }
+
 #backspace {
     background-color: #ff7f02;
     color: #ffffff;
