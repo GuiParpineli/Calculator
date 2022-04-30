@@ -43,7 +43,7 @@ body {
 #screen-numbers {
     width: 90%;
     background-color: rgb(1, 1, 21);
-    border-radius: .6em;
+    border-radius: .4em;
     display: flex;
     flex-wrap: wrap;
     text-align: right;
